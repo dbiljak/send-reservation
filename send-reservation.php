@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Send Reservation Mail by I am Root
- * Description: Send Reservation Thank you Mail #2
- * Version: 3.0.1
+ * Description: Send Reservation Thank you Mail
+ * Version: 3.0.2
  * Author: Dražen Biljak
  * License: GPL2+
  */
@@ -38,5 +38,3 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
     __FILE__,
     'send-reservation'
 );
-$myUpdateChecker->setAuthentication( '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' );
-$myUpdateChecker->setBranch( 'master' );
