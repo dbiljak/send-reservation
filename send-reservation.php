@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Send Reservation Mail by I am Root
- * Description: Send Reservation Thank you Mail
- * Version: 3.0.0
+ * Description: Send Reservation Thank you Mail #2
+ * Version: 3.0.1
  * Author: Dražen Biljak
  * License: GPL2+
  */
