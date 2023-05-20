@@ -1,0 +1,18 @@
+{
+  "name": "dbiljak/send-reservation",
+  "description": "Send Reservation Thank you Mail",
+  "version": "3.0.0",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Drazen Biljak",
+      "email": "dbiljak@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "sendReservation\\": ["app/"]
+    }
+  }
+}
