@@ -34,7 +34,9 @@ require 'plugin-update-checker/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://example.com/path/to/details.json',
-    __FILE__, //Full path to the main plugin file or functions.php.
-    'unique-plugin-or-theme-slug'
+    'https://github.com/dbiljak/send-reservation',
+    __FILE__,
+    'send-reservation'
 );
+$myUpdateChecker->setAuthentication( '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' );
+$myUpdateChecker->setBranch( 'master' );
