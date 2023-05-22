@@ -35,7 +35,7 @@ class ReservationsHelper {
             $reservation = $this->get_sorted_reservation( $reservation );
             $partial     = get_partial( 'email/reservation-email', $reservation, true );
 
-            //$this->t_send_email( 'dbiljak@gmail.com', 'Restaurant Mediterraneo Thank You Mail', $partial );
+            $this->t_send_email( $reservation['email'], 'Restaurant Mediterraneo Thank You Mail', $partial );
             $this->update_db( $id );
 
             $url = get_dashboard_url() . '?page=reservations.php';

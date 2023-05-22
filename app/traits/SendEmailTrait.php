@@ -7,8 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 trait SendEmailTrait {
-	public function t_send_email( $email, $subject, $html ): void
-    {
+	public function t_send_email( $email, $subject, $html ): void {
 		$content_type = function () {
 			return 'text/html';
 		};
@@ -20,8 +19,7 @@ trait SendEmailTrait {
 		remove_filter( 'wp_mail_content_type', $content_type );
 	}
 
-	private function get_headers(): array
-    {
+	private function get_headers(): array {
 		$headers[] = 'Bcc: dbiljak@gmail.com';
 
         return $headers;
