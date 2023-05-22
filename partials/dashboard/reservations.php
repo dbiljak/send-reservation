@@ -37,16 +37,22 @@ $form_submit_url     = plugin_dir_url( SEND_RESERVATION_PLUGIN_FILE_PATH ) . 'ap
             <tbody id="the-list" data-wp-lists="list:contact_form">
                 <?php foreach ( $reservations as $key => $reservation_records ) { ?>
                     <tr>
-                        <?php foreach ( $reservation_records as $reservation ) { ?>
-                            <td class="has-row-actions column-primary">
-                                <span><?= $reservation ?></span>
-                            </td>
+                        <?php foreach ( $reservation_records as $key => $reservation ) { ?>
+                            <?php if ( $key !== 'mail_sent' ) { ?>
+                                <td class="has-row-actions column-primary">
+                                    <span><?= $reservation ?></span>
+                                </td>
+                            <?php } ?>
                         <?php } ?>
                         <td>
-                            <form action="<?= $form_submit_url ?>" method="POST">
-                                <input type="hidden" name="reservation_id" value="<?= $reservation_records['reservation_id'] ?>">
-                                <button class="button action" type="submit" name="submit_button">Send Email</button>
-                            </form>
+                            <?php if ( ! $reservation_records['mail_sent'] ) { ?>
+                                <form action="<?= $form_submit_url ?>" method="POST">
+                                    <input type="hidden" name="reservation_id" value="<?= $reservation_records['reservation_id'] ?>">
+                                    <button class="button action" type="submit" name="submit_button">Send Email</button>
+                                </form>
+                            <?php } else { ?>
+                                Mail sent
+                            <?php } ?>
                         </td>
                     </tr>
                 <?php } ?>

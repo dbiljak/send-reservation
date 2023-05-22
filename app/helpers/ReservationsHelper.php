@@ -14,19 +14,20 @@ class ReservationsHelper {
         return $reservations;
     }
 
-    public function get_header() {
+    public function get_header(): array {
         $reservations     = $this->get_reservations();
         $reservation_rows = $reservations[0];
 
         foreach ( $reservation_rows as $key => $row ) {
-            $data[] = $this->get_table_headers( $key );
+            if ( $key !== 'mail_sent' ) {
+                $data[] = $this->get_table_headers($key);
+            }
         }
 
         return $data ?? [];
     }
 
-    public function send_email( $id ): bool
-    {
+    public function send_email( $id ): ?bool {
         $reservation = $this->query_reservation_by_id( $id );
         $reservation = $reservation[0] ?? [];
 
@@ -34,12 +35,26 @@ class ReservationsHelper {
             $reservation = $this->get_sorted_reservation( $reservation );
             $partial     = get_partial( 'email/reservation-email', $reservation, true );
 
-            $this->t_send_email( 'dbiljak@gmail.com', 'Restaurant Mediterraneo Thank You Mail', $partial );
+            //$this->t_send_email( 'dbiljak@gmail.com', 'Restaurant Mediterraneo Thank You Mail', $partial );
+            $this->update_db( $id );
 
-            return true;
+            $url = get_dashboard_url() . '?page=reservations.php';
+
+            wp_redirect( $url );
+            exit;
         }
 
         return false;
+    }
+
+    private function update_db( $form_id ): void {
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'send_reservation';
+        $values     = [ 'form_id' => $form_id, 'user_id' => get_current_user_id(), 'created_at' => current_time('mysql') ];
+        $formats    = [ '%s', '%s', '%s' ];
+
+        $wpdb->insert( $table_name, $values, $formats );
     }
 
     private function get_sorted_reservations( $reservations ) {
@@ -70,9 +85,14 @@ class ReservationsHelper {
         $fields     = $forms_data[$key];
 
         if ( $fields ) {
-            $response['reservation_id']  = $reservation_id;
-            $response['form_id']         = $form_id;
-            // $response['language']        = $fields['language'];
+            global $wpdb;
+
+            $table_name = $wpdb->prefix . 'send_reservation';
+            $result     = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $table_name WHERE form_id = %d", $reservation_id ) ) ?? 0;
+
+            $response['reservation_id'] = $reservation_id;
+            $response['form_id']        = $form_id;
+            $response['mail_sent']      = $result > 0;
 
             foreach ($fields as $key => $field) {
                 if ( isset( $data[$field] ) ) {
