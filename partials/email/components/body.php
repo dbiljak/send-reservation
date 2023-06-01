@@ -43,31 +43,7 @@
                                 </table>
                                 <?= get_partial( 'email/components/text' ) ?>
                                 <?= get_partial( 'email/components/post-text' ) ?>
-                                <table border="0" cellpadding="0" cellspacing="0" class="image_block block-7" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                                    <tr>
-                                        <td class="pad"
-                                            style="width:100%;padding-right:0px;padding-left:0px;">
-                                            <div align="center" class="alignment" style="line-height:10px"><img alt="Alternate text" class="big" src="<?= plugin_dir_url( SEND_RESERVATION_PLUGIN_FILE_PATH ) ?>images/email-bottom-line.png" style="display: block; height: auto; border: 0; width: 384px; max-width: 100%;" title="Alternate text" width="384" /></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <?= get_partial( 'email/components/button' ) ?>
                                 <div class="spacer_block block-9" style="height:65px;line-height:65px;font-size:1px;"></div>
-                                <table border="0" cellpadding="0" cellspacing="0" class="divider_block block-10" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                                    <tr>
-                                        <td class="pad" style="padding-bottom:40px;padding-left:10px;padding-right:10px;padding-top:40px;">
-                                            <div align="center" class="alignment">
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                                                    <tr>
-                                                        <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 0px solid #BBBBBB;">
-                                                            <span></span>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
                             </td>
                         </tr>
                     </tbody>

@@ -8,7 +8,11 @@
                         <span style="font-size:24px;">
                             <strong>
                                 <span style="color:#ffffff;">
-                                    Thank you for taking part in our story, for being the co-creators that enhanced our vision, who enriched our mutual experience of what Mediterraneo restaurant is.    
+                                    If you had a memorable time,
+                                    <br>
+                                    we would be thrilled if you could share your experience and help others find us.
+                                    <br>
+                                    Thank you!
                                 </span>
                             </strong>
                         </span>

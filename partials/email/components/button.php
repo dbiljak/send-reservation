@@ -7,7 +7,9 @@
                     <span style="padding-left:20px;padding-right:20px;font-size:22px;display:inline-block;letter-spacing:normal;">
                         <span style="margin:0;word-break:break-word;">
                             <span data-mce-style="" style="line-height: 39.6px;">
-                                <strong>Rate us on Tripadvisor</strong>
+                                <a style="color:#ffffff; text-decoration: none;" target="_blank" href="https://www.google.com/maps/place/Mediterraneo+Dine+%26+Wine/@43.1713024,16.4415534,17z/data=!4m8!3m7!1s0x13358180b3202a21:0x446dfdeef138cbb2!8m2!3d43.1713024!4d16.4415534!9m1!1b1!16s%2Fg%2F1z44xz5y3?entry=ttu">
+                                    <strong>Rate us!</strong>
+                                </a>
                             </span>
                         </span>
                     </span>

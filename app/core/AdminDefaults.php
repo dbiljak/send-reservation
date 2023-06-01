@@ -7,6 +7,7 @@ class AdminDefaults {
         add_action( 'admin_menu', [ $this, 'add_custom_option_pages' ] );
         add_action( 'admin_init', [ $this, 'create_plugin_table' ] );
         add_action( 'admin_init', [ $this, 'create_mail_sender_role' ] );
+	    add_action( 'admin_init', [ $this, 'custom_capability_to_admin' ] );
     }
 
     public function create_mail_sender_role(): void {
@@ -57,4 +58,11 @@ class AdminDefaults {
             get_partial( 'dashboard/reservations' );
         }
     }
+
+	public function custom_capability_to_admin() {
+		if ( is_admin() ) {
+			$administrator = get_role( 'administrator' );
+			$administrator->add_cap( 'mail_sender' );
+		}
+	}
 }
